@@ -1,0 +1,3 @@
+# Project exclude paths
+/utils/src/main/resources/static/tests/
+/utils/target/

@@ -21,7 +21,7 @@ echo "[" > tests.json
 
 # Write names of the directories stored in the array to a file
 for dir in "${directories[@]}"; do
-    echo -e " {\n  \"name\": \"$dir\",\n  \"description\": \"Acct type codes starting with $dir\"\n }" >> tests.json
+    echo -e " {\n  \"name\": \"$dir\",\n  \"description\": \"Acct type codes starting with $dir\"\n }," >> tests.json
 done
 
 # Write the closing bracket to the file

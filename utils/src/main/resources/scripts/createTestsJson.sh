@@ -6,14 +6,12 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-# Set the directory to the first command line argument, and change directories
+# Set the directory to command line arg and CD into it
 DIR="$1"
 cd "$DIR"
 
-# Create an array to store the names of the directories
+# Store names of the directories, read into the array
 directories=()
-
-# Read the names of the directories into the array
 while read -r line; do
     directories+=("$line")
 done < <(ls -d */ | sed 's/\/$//')
@@ -21,7 +19,7 @@ done < <(ls -d */ | sed 's/\/$//')
 # Write the opening bracket to the file
 echo "[" > tests.json
 
-# Write the names of the directories stored in the array to a file
+# Write names of the directories stored in the array to a file
 for dir in "${directories[@]}"; do
     echo -e " {\n  \"name\": \"$dir\",\n  \"description\": \"Acct type codes starting with $dir\"\n }" >> tests.json
 done
